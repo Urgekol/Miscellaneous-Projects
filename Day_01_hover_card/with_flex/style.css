@@ -1,0 +1,97 @@
+/*
+    display: flex;                  -- this is compulsory to make the particular
+    justify-content: center;                 div to be in the center of the page
+    align-items: center;        
+    height: 100vh;
+*/
+
+body {
+
+    background-color: #0f1721;
+    display: flex;
+    justify-content: center;    /* align horizontally */
+    align-items: center;        /* align vertically */
+    height: 100vh;              /* Full viewport height */
+}
+
+
+.wrapper {
+
+    display: flex;
+    flex-direction: row;        /* arrange in row-wise */
+    gap: 15px;                  /* gap between the cards */
+}
+
+/*
+    Why flex in this Case:
+
+        Flexbox is the better choice here because it allows 
+        you to easily align the cards in a row and distribute 
+        the remaining space between them. 
+                                        Flexbox is designed 
+        for one-dimensional layouts, which is exactly what 
+        we're doing here.
+
+
+    gap: <row-gap> <column-gap>;
+    gap: <row&column-gap>;
+
+    Why gap in this Case:
+
+        Since you specified "gap between the cards," gap is 
+        the better choice here because it ensures a fixed, 
+        consistent spacing, unaffected by container resizing. 
+        
+        Using "justify-content: space-between" would distribute 
+        space dynamically, possibly resulting in uneven 
+        spacing or pushing the items too far apart when the 
+        container is wide.
+*/
+
+
+.wrapper .card {
+
+    width: 150px;
+    height: 150px;
+    border-radius: 7px;
+    background-color: #c873fd;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    /*
+        transition: <property> <duration> <timing-function> <delay>;
+        transition: <property> <duration>;
+        transition: <property>;
+
+        transition properties:
+            ease
+            linear
+            ease-in
+            ease-out
+            ease-in-out
+            cubic-bezier(n,n,n,n)
+    */
+}
+
+
+.wrapper:hover > :not(:hover) {
+
+    /* Targets all children of .wrapper that are not being hovered. */
+    filter: blur(5px);
+    opacity: 0.5;
+}
+
+/*
+    What is the meaning of the above code:
+
+        It allows you to style (blur) child elements that  
+        are not hovered when the parent container is hovered,  
+        all other cards will blur and reduce their opacity. 
+
+        This is achieved by using the :not() pseudo-class 
+        to target. 
+
+    ">" is the child combinator, which selects only the
+    direct children of the parent element.
+*/

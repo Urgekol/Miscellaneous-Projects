@@ -1,0 +1,31 @@
+
+
+body {
+    background-color: #0f1721;
+    place-items: center;    /* Centers content both vertically and horizontally */
+}
+
+
+.wrapper {
+    display: grid;
+    grid-auto-flow: column; /* Arrange items in a row */
+    margin-top: 20%;        /* Adjust the margin-top to center the cards */
+    gap: 15px;              /* Add space between the cards */
+}
+
+
+.wrapper .card {
+    width: 150px;
+    height: 150px;
+    border-radius: 7px;
+    background-color: #c873fd;
+    cursor: pointer;
+    transition: 1s ease;    /* Add a smooth transition effect, with a delay */
+}
+
+
+.wrapper:hover > :not(:hover) {     
+    /*Targets all children of .wrapper that are not being hovered.*/
+    filter: blur(5px);
+    opacity: 0.5;
+}
