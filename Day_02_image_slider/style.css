@@ -1,0 +1,89 @@
+body {
+
+    background-color: #000a1f;
+    display: flex;
+    justify-content: center;        /* Center the container horizontally */
+    align-items: center;            /* Center the container vertically */
+    height: 100vh;                  /* Full viewport height */
+
+    flex-direction: column;         /* Align items vertically */
+}
+
+
+h1 {
+
+    color: whitesmoke;
+    font-size: 5.5rem;
+    margin: -20px auto 20px auto;    /* Center the heading */
+
+    /*
+        margin: <top> <right> <bottom> <left>;
+        margin: <top> <right&left> <bottom>;
+        margin: <top&bottom> <right&left>;
+        margin: <all>;
+    */
+}
+
+
+.container {
+
+    width: 70%;
+    height: 450px;
+    display: flex;
+    justify-content: center;        /* Center the images horizontally */
+    align-items: center;            /* Center the images vertically */
+    gap: 10px;
+}
+
+
+.container img {
+
+    width: 10%;
+    height: 100%;
+    object-fit: cover;              /* Prevents the image from stretching */
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+    transition: width 1s ease;      /* Use transform for smooth scaling by adding delay */
+}
+
+/*
+    Why " .container img " and not just "img" ?
+
+    1. "img" would select all images on the page, but we only want to 
+        style the images inside the container.
+
+    2. ".container img" selects only the images inside the container,
+        allowing for more control and specificity. 
+        
+        For example, if you have multiple images across your page 
+        but only want to style images inside a particular container, 
+        you would use this selector.
+*/
+
+
+.container img:hover {
+
+    width: 20%;                     /* Scale the image on hover */
+}
+
+/*
+
+    Why Two display: flex are Used:
+
+    1. On body:
+
+        This flex display ensures the ".container" is centered both 
+        horizontally and vertically within the entire viewport.
+
+
+    2. On .container:
+
+        This flex display ensures that the child img elements are 
+        arranged in a row, evenly spaced, and aligned properly.
+
+        Having two display: flex allows for separate alignment tasks: 
+            "one for the page-level layout (centering the container in 
+            the viewport)" and "one for the element-level layout  
+            (aligning images inside the container)".
+
+*/
