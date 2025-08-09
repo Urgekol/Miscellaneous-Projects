@@ -40,7 +40,7 @@ body {
 
 
 /* Front Face (face1) */
-.container .card .face .face1 {
+.container .card .face.face1 {
 
     position: relative;
 
